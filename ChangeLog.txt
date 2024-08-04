@@ -1,0 +1,5 @@
+04.08.2024
+
+===== Version 1 =====
+
+Initial release.

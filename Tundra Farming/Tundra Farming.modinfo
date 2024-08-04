@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="51857812-20a1-43b3-a64e-ca0b351b5eda" version="1">
+  <Properties>
+    <Name>[COLOR_FLOAT_FOOD]Tundra Farming[ENDCOLOR] [ICON_FoodSurplus]</Name>
+    <Description>This is an updated and extended version of the "Tundra Farms" mod by gametempest.[NEWLINE][NEWLINE][ICON_You]Allows Farms to be built on Tundra.[NEWLINE][ICON_You]Allows Farms to be built on Tundra Hills once 'Civil Engineering' is unlocked.[NEWLINE][ICON_You]Allows Terrace Farms to be built on Tundra Hills.[NEWLINE][ICON_You]Allows Farms to be built on Tundra Floodplains (with [COLOR:ResScienceLabelCS]Wetlands[ENDCOLOR] mod installed and enabled).</Description>
+    <CustomProperties></CustomProperties>
+    <Created>1722262303</Created>
+    <Teaser>Allows Farms to be built on Tundra. Allows farms to be built on Tundra Hills after the Civic 'Civil Engineering'.</Teaser>
+    <Authors>H.Humpel</Authors>
+    <Homepage>https://github.com/HpunktHumpel/TundraFarming</Homepage>
+    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+  </Properties>
+  <References>
+    <Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Expansion: Gathering Storm" />
+    <Mod id="73b1478a-73bf-4907-8914-b1b5acca388b" title="Wetlands" />
+  </References>
+  <Blocks>
+    <Mod id="7b53d19a-6370-4303-bda0-7e9abb0bc4a1" title="Tundra Farms" />
+  </Blocks>
+  <ActionCriteria>
+    <Criteria id="XP2InUse">
+      <ModInUse>4873eb62-8ccc-4574-b784-dda455e74e68</ModInUse>
+    </Criteria>
+    <Criteria id="WetlandsInUse">
+      <ModInUse>73b1478a-73bf-4907-8914-b1b5acca388b</ModInUse>
+    </Criteria>
+  </ActionCriteria>
+  <InGameActions>
+    <UpdateDatabase id="TundraFarms">
+      <File>Core/TundraFarms.sql</File>
+    </UpdateDatabase>
+    <UpdateDatabase id="TundraTerraceFarms">
+      <Criteria>XP2InUse</Criteria>
+      <File>Core/TundraTerraceFarms.sql</File>
+    </UpdateDatabase>
+    <UpdateDatabase id="TundraFloodplainsFarms">
+      <Criteria>XP2InUse</Criteria>
+      <Criteria>WetlandsInUse</Criteria>
+      <File>Core/TundraFloodplainsFarms.sql</File>
+    </UpdateDatabase>
+    <UpdateText id="TundraFarms_Text">
+      <Properties>
+        <LoadOrder>2000</LoadOrder>
+      </Properties>
+      <File>Text/TundraFarms_Text.sql</File>
+    </UpdateText>
+  </InGameActions>
+  <Files>
+    <File>Core/TundraFarms.sql</File>
+    <File>Core/TundraFloodplainsFarms.sql</File>
+    <File>Core/TundraTerraceFarms.sql</File>
+    <File>Text/TundraFarms_Text.sql</File>
+  </Files>
+</Mod>
